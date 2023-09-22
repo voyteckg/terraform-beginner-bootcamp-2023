@@ -109,4 +109,31 @@ All future workspaces launched will set the env vars for all bash terminals open
 
 Yo cvan also set en vars in the `.gitpod.yml`
 
+### AWS CLI Installation
 
+AWS CLI is installed for the project.
+
+AWS CLI is installed for the project via the bash [`./bin/install_aws_cli`](./bin/install_aws_cli)
+
+[Getting Started Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+We can check if our AWS credentials is configured correctly by running the following command:
+```sh
+aws sts get-caller-identity
+```
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
+
+### Regions in AWS
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html
+
+If it is succesfull you shoul see a json payload return that looks like this:
+
+```json
+{
+    "UserId": "AIDAR6YRTCW736CEJNZY5",
+    "Account": "1234566789012",
+    "Arn": "arn:aws:iam::684547446207:user/terraform-beginner-bootcamp"
+}
+```
+We'll need to genearate AWS CLI credits
