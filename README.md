@@ -137,3 +137,55 @@ If it is succesfull you shoul see a json payload return that looks like this:
 }
 ```
 We'll need to genearate AWS CLI credits
+
+## Terraform Basics
+
+### Terraform Registry
+
+Terraform sources their providers and modules from Terraform registry which locstes at [registry.terraform.io](https://registry.terraform.io/)
+
+- **Providers** is an interface to APIs that will allow to create resources in terraform
+- **Modules** are a way to make large amount of terrafrom code modular, portable and sharable
+
+[Random Terraform Provider](https://registry.terraform.io/providers/hashicorp/random)
+### Terraform Console
+
+We can see a list of all the Terraform commands by simply typing `terraform`
+
+##### Terraform Init
+
+At the start of a new terraform project we will run `terraform init` to download the binaries for the terraform providers that we'll use in this project.
+
+#### Terraform Plan
+
+This will generate out a changeset, about the state of our infrastructure and what will be changed
+
+#### Terraform Apply
+
+`terrafrom apply`
+
+This will run a plan a pass the changeset to execute by terraform.
+
+If we want to automatically approve an apply we can provide the auto approve flag `terraform apply --auto-aprove`
+
+### Terrafrom Lock Files
+
+`.terraform.lock.hcl` contains the locked verioning for the providers or modules.
+
+The Terraform Lock File should be commited to you Version Control System (VSC) eg. GitHub
+
+### Terraform State Files
+
+`.terraform.tfstate` contain information about the currnt state of yur infrastructudre.
+
+This file **should not to be commited** to your VCS.
+
+This file can cotain sensitive data.
+
+If you lose this file, you lose knowing the stae of your infrastructure.
+
+`.terraform.tfstate.backup` is the previous state file state
+
+### Terraform Directory 
+
+`.terraform` directory contains binaries of terraform providers.
