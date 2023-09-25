@@ -168,6 +168,14 @@ This will run a plan a pass the changeset to execute by terraform.
 
 If we want to automatically approve an apply we can provide the auto approve flag `terraform apply --auto-aprove`
 
+#### Terraform Destroy
+
+`terraform destroy`
+This will destroy resources
+You can use approve flag
+
+`terraform apply --auto-aprove`
+
 ### Terrafrom Lock Files
 
 `.terraform.lock.hcl` contains the locked verioning for the providers or modules.
@@ -189,3 +197,5 @@ If you lose this file, you lose knowing the stae of your infrastructure.
 ### Terraform Directory 
 
 `.terraform` directory contains binaries of terraform providers.
+
+
