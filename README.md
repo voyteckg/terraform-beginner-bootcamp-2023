@@ -224,3 +224,4 @@ provide the following code
 }
 ```
 
+We have automated this workaroud with the following bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
