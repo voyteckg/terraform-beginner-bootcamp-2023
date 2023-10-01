@@ -1,9 +1,5 @@
-#https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-resource "aws_s3_bucket" "website_bucket" {
-  bucket = var.bucket_name
-  # Bucket Naming rules
-  #https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
-  tags = {
-    UserUuid = var.user_uuid
-  }
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
 }

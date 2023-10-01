@@ -1,10 +1,4 @@
 terraform {
-  # cloud {
-  #   organization = "Demo-Test321"
-  #   workspaces {
-  #     name = "terra-house-1"
-  #   }
-  # }
   required_providers {
     aws = {
       source = "hashicorp/aws"
@@ -13,10 +7,4 @@ terraform {
   }
 }
 
-provider "aws" {
-  # Configuration options
-}
 
-provider "random" {
-  # Configuration options
-}
