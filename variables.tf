@@ -17,6 +17,5 @@ variable "user_uuid" {
 }
 
 variable "content_version" {
-  description = "The content version. Should be positive integer, starting at 1."
   type        = number
 }
