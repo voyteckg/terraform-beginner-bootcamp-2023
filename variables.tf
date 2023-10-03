@@ -15,3 +15,8 @@ variable "user_uuid" {
   description = "Path to the error.html"
   type        = string
 }
+
+variable "content_version" {
+  description = "The content version. Should be positive integer, starting at 1."
+  type        = number
+}
