@@ -5,20 +5,20 @@ terraform {
       version = "1.0.0"
     }
   }
-  #backend "remote" {
+  # backend "remote" {
   #  hostname = "app.terraform.io"
   #  organization = "ExamPro"
 
   #  workspaces {
   #    name = "terra-house-1"
   #  }
-  #}
-  #cloud {
-  #  organization = "ExamPro"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+  # }
+  cloud {
+   organization = "Demo-Test321"
+   workspaces {
+     name = "terra-house-1"
+   }
+  }
 
 }
 
@@ -28,14 +28,12 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
+module "home_supermario_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  #bucket_name = var.bucket_name
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.supermario.public_path
+  content_version = var.supermario.content_version
+  
 }
 
 resource "terratowns_home" "home" {
@@ -48,8 +46,25 @@ letting Mario possess enemies and other objects, helping him solve puzzles and p
 After completing the main story mode, other post-game kingdoms are unlockable as well as an additional minigame,
 "Luigi's Balloon World". The game supports multiplayer and virtual reality with a Nintendo Labo virtual reality kit.
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
-  #domain_name = "6fdq6gz.cloudfront.net"
+  domain_name = module.home_supermario_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.supermario.content_version
+}
+
+module "home_pizza_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.pizza.public_path
+  content_version = var.pizza.content_version
+}
+
+resource "terratowns_home" "home_pizza_hosting" {
+  name = "Making you own pizza at home"
+  description = <<DESCRIPTION
+Make perfect pizza at home with this classic homemade pizza recipe, including a pizza dough recipe, 
+topping suggestions, and step-by-step instructions with photos.
+DESCRIPTION
+  domain_name = module.home_pizza_hosting.domain_name
+  town = "missingo"
+  content_version = var.pizza.content_version
 }
