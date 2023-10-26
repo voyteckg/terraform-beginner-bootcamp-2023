@@ -65,6 +65,6 @@ Make perfect pizza at home with this classic homemade pizza recipe, including a 
 topping suggestions, and step-by-step instructions with photos.
 DESCRIPTION
   domain_name = module.home_pizza_hosting.domain_name
-  town = "missingo"
+  town = "cooker-cove"
   content_version = var.pizza.content_version
 }
